@@ -74,9 +74,7 @@ button {
 button:hover {
     background-color: #0b4907;
     color: #ffffff;
-    font-weight: 500;
-    border-color: #2c3e50;
-    
+    font-weight: 500;   
 }
 
 button:disabled {
