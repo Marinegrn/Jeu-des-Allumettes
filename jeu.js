@@ -13,33 +13,33 @@ const restartButton = document.getElementById('restart-game');
         
 // Variables globales
 let nbAllumettes = 50;
-let joueurActuel = 1;
-let nombreJoueurs = 2;
+let joueurActuel = 1; // traduction
+let nombreJoueurs = 2; // traduction
 
 // Range minimum et maximum pour le nombre d'allumettes à retirer
 allumettesInput.min = 1;
 allumettesInput.max = 6;
         
 // Étape 1: Fonction pour retirer des allumettes
-function retirerAllumettes(nombre) {
+function retirerAllumettes(nombre) { // traduction
     if (nombre >= 1 && nombre <= 6 && nombre <= nbAllumettes) {
-        nbAllumettes -= nombre;
+        nbAllumettes -= nombre; // traduction
         return true;
     }
     return false;
 };
         
 // Fonction pour passer au joueur suivant
-function joueurSuivant() {
-    joueurActuel = joueurActuel % nombreJoueurs + 1;
-    playerTurn.textContent = `Tour du Joueur ${joueurActuel}`;
+function joueurSuivant() { // traduction
+    joueurActuel = joueurActuel % nombreJoueurs + 1; // traduction
+    playerTurn.textContent = `Tour du Joueur ${joueurActuel}`; // traduction
 };
         
 // Fonction pour vérifier la victoire
-function verifierVictoire() {
+function verifierVictoire() { // traduction
     if (nbAllumettes === 0) {
         playerTurn.style.display = 'none';
-        winnerMessage.textContent = `Le Joueur ${joueurActuel} a gagné !`;
+        winnerMessage.textContent = `Le Joueur ${joueurActuel} a gagné !`; // traduction
         winnerMessage.style.display = 'block';
         restartButton.style.display = 'inline-block';
         allumettesInput.disabled = true;
@@ -50,7 +50,7 @@ function verifierVictoire() {
 };
         
 // Fonction pour afficher les allumettes
-function afficherAllumettes() {
+function afficherAllumettes() { // traduction
     allumettesContainer.innerHTML = '';
 
     for (let i = 0; i < nbAllumettes; i++) {
@@ -62,9 +62,9 @@ function afficherAllumettes() {
 };
         
 // Fonction pour initialiser le jeu
-function initialiserJeu() {
+function initialiserJeu() { // traduction
     nbAllumettes = 50;
-    joueurActuel = 1;
+    joueurActuel = 1; // traduction
 
     playerTurn.textContent = `Tour du Joueur ${joueurActuel}`;
     playerTurn.style.display = 'block';
@@ -72,29 +72,29 @@ function initialiserJeu() {
     allumettesInput.disabled = false;
     removeButton.disabled = false;
 
-    afficherAllumettes();
+    afficherAllumettes(); // traduction
 };
         
 // Événements
 startButton.addEventListener('click', () => {
-    nombreJoueurs = parseInt(playerCountInput.value);
+    nombreJoueurs = parseInt(playerCountInput.value); // traduction
 
-        if (nombreJoueurs < 2) {
+        if (nombreJoueurs < 2) { // traduction
             alert('Il faut au moins 2 joueurs !');
             return;
         }
     setupContainer.style.display = 'none';
     gameContainer.style.display = 'block';
-    initialiserJeu();
+    initialiserJeu(); // traduction
 });
         
 removeButton.addEventListener('click', () => {
-     const nombreARetirer = parseInt(allumettesInput.value);
+     const nombreARetirer = parseInt(allumettesInput.value); // traduction
 
-         if (retirerAllumettes(nombreARetirer)) {
-            afficherAllumettes();
-            if (!verifierVictoire()) {
-                joueurSuivant();
+         if (retirerAllumettes(nombreARetirer)) { // traduction
+            afficherAllumettes(); // traduction
+            if (!verifierVictoire()) { // traduction
+                joueurSuivant(); // traduction
             }
         } else {
             alert('Nombre invalide ! Vous devez retirer entre 1 et 6 allumettes, et pas plus que le nombre restant.');
