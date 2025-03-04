@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="interface.css" rel="stylesheet">
+    <title>Jeu des Allumettes</title>
+</head>
+
+<body>
+
+    <h1>Jeu des Allumettes</h1>
+    
+    <div class="container setup" id="setup-container">
+
+        <h2>Configuration</h2>
+        <div>
+            <label for="player-count">Nombre de joueurs :</label>
+            <input type="number" id="player-count" min="2" max="10" value="2">
+        </div>
+        <button id="start-game">Commencer la partie</button>
+    </div>
+    
+    <div class="container game-board" id="game-container" style="display: none;">
+        <div class="status" id="game-status">Il reste 50 allumettes</div>
+        <div class="status" id="player-turn">Tour du Joueur 1</div>
+        
+        <div id="allumettes-container"></div>
+        
+        <div>
+            <label for="allumettes-input">Combien d'allumettes souhaitez-vous retirer ? (1-6)</label>
+            <input type="number" id="allumettes-input" min="1" max="6" value="1">
+            <button id="remove-button">Retirer</button>
+        </div>
+        
+        <div class="winner" id="winner-message" style="display: none;"></div>
+        <button id="restart-game" style="display: none;">Rejouer</button>
+
+    </div>
+
+    <script src="jeu.js"></script>
+
+</body>
+
+</html>
