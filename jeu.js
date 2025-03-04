@@ -14,13 +14,40 @@ const restartButton = document.getElementById('restart-game');
 // Variables globales
 let nbAllumettes = 50;
 let currentPlayer = 1; 
-let nbPlayers = 2; 
+let nbPlayers = 2; // nobmre minimum de joueurs requis pour pouvoir jouer, cf. ligne 84 à 87
 
-// Range minimum et maximum pour le nombre d'allumettes à retirer
+// Range minimum et maximum du nombre d'allumettes à retirer
 allumettesInput.min = 1;
 allumettesInput.max = 6;
+
+// Fonction pour initialiser le jeu
+function gameStart() { 
+    nbAllumettes = 50;
+    currentPlayer = 1; 
+
+    playerTurn.textContent = `Tour du Joueur ${currentPlayer}`;
+    playerTurn.style.display = 'block';
+    winnerMessage.style.display = 'none';
+    allumettesInput.disabled = false;
+    removeButton.disabled = false;
+
+    displayMatches(); 
+};
+
+// Fonction pour afficher les allumettes
+function displayMatches() { 
+    allumettesContainer.innerHTML = '';
+
+    for (let i = 0; i < nbAllumettes; i++) {
+        const allumette = document.createElement('div');
+        allumette.className = 'allumette';
+        allumettesContainer.appendChild(allumette);
+        }
+    gameStatus.textContent = `Il reste ${nbAllumettes} allumette${nbAllumettes > 1 ? 's' : ''}`;
+};
+   
         
-// Étape 1: Fonction pour retirer des allumettes
+// Fonction pour retirer des allumettes
 function pullMatches(number) { 
     if (number >= 1 && number <= 6 && number <= nbAllumettes) {
         nbAllumettes -= number; 
@@ -49,33 +76,8 @@ function checkWin() {
     return false;
 };
         
-// Fonction pour afficher les allumettes
-function displayMatches() { 
-    allumettesContainer.innerHTML = '';
-
-    for (let i = 0; i < nbAllumettes; i++) {
-        const allumette = document.createElement('div');
-        allumette.className = 'allumette';
-        allumettesContainer.appendChild(allumette);
-        }
-    gameStatus.textContent = `Il reste ${nbAllumettes} allumette${nbAllumettes > 1 ? 's' : ''}`;
-};
-        
-// Fonction pour initialiser le jeu
-function gameStart() { 
-    nbAllumettes = 50;
-    currentPlayer = 1; 
-
-    playerTurn.textContent = `Tour du Joueur ${currentPlayer}`;
-    playerTurn.style.display = 'block';
-    winnerMessage.style.display = 'none';
-    allumettesInput.disabled = false;
-    removeButton.disabled = false;
-
-    displayMatches(); 
-};
-        
-// Événements
+             
+// Configuration du mode multi-joueurs avant de commencer la partie / événement
 startButton.addEventListener('click', () => {
     nbPlayers = parseInt(playerCountInput.value); 
 
@@ -87,7 +89,8 @@ startButton.addEventListener('click', () => {
     gameContainer.style.display = 'block';
     gameStart(); 
 });
-        
+
+// Événements boutons
 removeButton.addEventListener('click', () => {
      const pullNb = parseInt(allumettesInput.value); 
 
