@@ -40,6 +40,7 @@ h2 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*batôns d'allumettes*/
 .allumette {
     width: 4px;
     height: 40px;
@@ -47,6 +48,7 @@ h2 {
     position: relative;
 }
 
+/*tête des allumettes*/
 .allumette::after {
     content: '';
     position: absolute;

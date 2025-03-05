@@ -38,6 +38,7 @@ function gameStart() {
 function displayMatches() { 
     allumettesContainer.innerHTML = '';
 
+    // boucle pour créer 50 allumettes (interface graphique)
     for (let i = 0; i < nbAllumettes; i++) {
         const allumette = document.createElement('div');
         allumette.className = 'allumette';
