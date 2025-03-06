@@ -31,6 +31,7 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Container qui va afficher les 50 petites allumettes*/
 #allumettes-container {
     display: flex;
     flex-wrap: wrap;

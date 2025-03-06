@@ -38,7 +38,7 @@ function gameStart() {
 function displayMatches() { 
     allumettesContainer.innerHTML = '';
 
-    // boucle pour créer 50 allumettes (interface)
+    // boucle pour créer et itérer 50 allumettes (interface)
     for (let i = 0; i < nbAllumettes; i++) {
         const allumette = document.createElement('div');
         allumette.className = 'allumette';
@@ -46,8 +46,7 @@ function displayMatches() {
         }
     gameStatus.textContent = `Il reste ${nbAllumettes} allumette${nbAllumettes > 1 ? 's' : ''}`;
 };
-   
-        
+          
 // Fonction pour retirer des allumettes
 function pullMatches(number) { 
     if (number >= 1 && number <= 6 && number <= nbAllumettes) {
@@ -76,8 +75,7 @@ function checkWin() {
     }
     return false;
 };
-        
-             
+                     
 // Configuration du mode multi-joueurs avant de commencer la partie / événement
 startButton.addEventListener('click', () => {
     nbPlayers = parseInt(playerCountInput.value); 
